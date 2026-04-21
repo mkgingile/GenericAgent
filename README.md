@@ -21,7 +21,7 @@ Every time GenericAgent solves a new task, it automatically crystallizes the exe
 
 > **🤖 Self-Bootstrap Proof** — Everything in this repository, from installing Git and running `git init` to every commit message, was completed autonomously by GenericAgent. The author never opened a terminal once.
 
-> **📝 Personal Note** — I forked this to experiment with the self-evolution mechanism using local Ollama models. See my notes in `docs/ollama-setup.md` if you're trying the same.
+> **📝 Personal Note** — I forked this to experiment with the self-evolution mechanism using local Ollama models. See my notes in `docs/ollama-setup.md` if you're trying the same. Tested primarily with `llama3.1:8b` and `mistral:7b` — the latter handles tool-call formatting more reliably in my experience.
 
 ## 📋 Core Features
 - **Self-Evolving**: Automatically crystallizes each task into an skill. Capabilities grow with every use, forming your personal skill tree.
@@ -33,9 +33,4 @@ Every time GenericAgent solves a new task, it automatically crystallizes the exe
 
 ## 🧬 Self-Evolution Mechanism
 
-This is what fundamentally distinguishes GenericAgent from every other agent framework.
-
-```
-[New Task] --> [Autonomous Exploration] (install deps, write scripts, debug & verify) -->
-[Crystallize Execu
-```
+This is what fundamen
