@@ -21,16 +21,11 @@ Every time GenericAgent solves a new task, it automatically crystallizes the exe
 
 > **🤖 Self-Bootstrap Proof** — Everything in this repository, from installing Git and running `git init` to every commit message, was completed autonomously by GenericAgent. The author never opened a terminal once.
 
-> **📝 Personal Note** — I forked this to experiment with the self-evolution mechanism using local Ollama models. See my notes in `docs/ollama-setup.md` if you're trying the same. Tested primarily with `llama3.1:8b` and `mistral:7b` — the latter handles tool-call formatting more reliably in my experience.
+> **📝 Personal Note** — I forked this to experiment with the self-evolution mechanism using local Ollama models. See my notes in `docs/ollama-setup.md` if you're trying the same. Tested primarily with `llama3.1:8b` and `mistral:7b` — the latter handles tool-call formatting more reliably in my experience. I've also had decent results with `qwen2.5:7b`, which seems to follow structured output instructions more consistently than either of the above.
 
 ## 📋 Core Features
 - **Self-Evolving**: Automatically crystallizes each task into an skill. Capabilities grow with every use, forming your personal skill tree.
 - **Minimal Architecture**: ~3K lines of core code. Agent Loop is ~100 lines. No complex dependencies, zero deployment overhead.
 - **Strong Execution**: Injects into a real browser (preserving login sessions). 9 atomic tools take direct control of the system.
 - **High Compatibility**: Supports Claude / Gemini / Kimi / MiniMax and other major models. Cross-platform.
-- **Token Efficient**: <30K context window — a fraction of the 200K–1M other agents consume. Layered memory ensures the right knowledge is always in scope. Less noise, fewer hallucinations, higher success rate — at a fraction of the cost.
-
-
-## 🧬 Self-Evolution Mechanism
-
-This is what fundamen
+- **Token Efficient**: <30K context window — a fraction of the 200K–1M other agents consume. Layered memory ensures the right knowledge is always in scope. Less noise
