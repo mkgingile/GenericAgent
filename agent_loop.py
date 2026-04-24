@@ -49,8 +49,8 @@ def agent_runner_loop(client, system_prompt, user_input, handler, tools_schema, 
     while turn < handler.max_turns:
         turn += 1; md = '**' if verbose else ''
         yield f"{md}LLM Running (Turn {turn}) ...{md}\n\n"
-        # Reset tool descriptions every 8 turns instead of 10 to keep context fresher
-        if turn%8 == 0: client.last_tools = ''  # 每8轮重置一次工具描述，避免上下文过大导致的模型性能下降
+        # Reset tool descriptions every 10 turns (reverted from 8 — 8 felt too aggressive in practice)
+        if turn%10 == 0: client.last_tools = ''  # 每10轮重置一次工具描述，避免上下文过大导致的模型性能下降
         response_gen = client.chat(messages=messages, tools=tools_schema)
         if verbose:
             response = yield from response_gen
@@ -60,6 +60,4 @@ def agent_runner_loop(client, system_prompt, user_input, handler, tools_schema, 
             cleaned = _clean_content(response.content)
             if cleaned: yield cleaned + '\n'
 
-        if not response.tool_calls: tool_calls = [{'tool_name': 'no_tool', 'args': {}}]
-        else: tool_calls = [{'tool_name': tc.function.name, 'args': json.loads(tc.function.arguments), 'id': tc.id}
-                        
+        if not response.tool_calls: tool_cal
