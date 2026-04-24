@@ -46,3 +46,5 @@ If your skill only makes sense for a specific workflow, it's a marketplace candi
 ## Personal Notes (Fork)
 
 > This is my personal fork for learning and experimentation. I'm not actively submitting PRs upstream — changes here may deviate from the upstream contribution standards.
+>
+> **Current focus:** exploring custom skill development and understanding the core agent loop. Tracking interesting patterns in `memory/` as a reference for building domain-specific skills later.
