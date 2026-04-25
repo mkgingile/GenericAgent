@@ -3,6 +3,13 @@
 This package provides built-in tools that the agent can use during execution.
 Each tool module should define a `schema` dict (OpenAI function schema) and
 a callable `handler` function that implements the tool logic.
+
+Note: schema dicts should follow the OpenAI function-calling format, i.e.:
+    {
+        "name": "tool_name",
+        "description": "...",
+        "parameters": { ... }   # JSON Schema object
+    }
 """
 
 from pathlib import Path
@@ -40,7 +47,7 @@ def get_handler(tool_name: str):
     Returns:
         The handler callable, or None if not found.
     """
-    for path in _TOOLS_DIR.glob("*.py"):
+    for path in sorted(_TOOLS_DIR.glob("*.py")):
         if path.stem.startswith("_"):
             continue
         module = importlib.import_module(f"tools.{path.stem}")
